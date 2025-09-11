@@ -5,7 +5,7 @@
 	.layout {
 		display: flex;
 		flex: 1;
-		min-height: calc(100vh - 140px); // Учитываем высоту header и footer
+		min-height: calc(100vh - 140px);
 	}
 
 	.main {
