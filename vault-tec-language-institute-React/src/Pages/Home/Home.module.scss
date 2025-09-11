@@ -52,6 +52,7 @@
 		font-size: 16px;
 		line-height: 1.5;
 		margin-bottom: 20px;
+		text-align: center;
 	}
 
 	.contentRow {
@@ -72,8 +73,9 @@
 	.buttonGroup {
 		margin-top: 20px;
 		display: flex;
+		align-items: center;
+		justify-content: center;
 		gap: 12px;
-		flex-wrap: wrap;
 	}
 
 	.imageContent {

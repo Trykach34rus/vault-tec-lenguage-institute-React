@@ -1,0 +1,177 @@
+.root {
+	width: 240px;
+	background: #0a2e5a;
+	border-right: 1px solid #39ff14;
+	padding: 18px;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+
+	.brand {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		margin-bottom: 24px;
+
+		.logo {
+			width: 44px;
+			height: 44px;
+			flex: 0 0 44px;
+		}
+
+		h1 {
+			margin: 0;
+			font-family: 'VT323', monospace;
+			color: #39ff14;
+			font-size: 16px;
+			letter-spacing: 1px;
+			line-height: 1.2;
+		}
+	}
+
+	.navActions {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 12px;
+		margin-bottom: 24px;
+		padding: 12px;
+		background: rgba(57, 255, 20, 0.1);
+		border-radius: 6px;
+
+		.muted {
+			color: #cccccc;
+			font-size: 12px;
+		}
+
+		.userName {
+			color: #39ff14;
+			font-weight: bold;
+		}
+	}
+
+	.btn {
+		background: #0a2e5a;
+		border: 2px solid #39ff14;
+		color: white;
+		padding: 6px;
+		font-family: 'VT323', monospace;
+		cursor: pointer;
+		border-radius: 4px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		transition: all 0.18s ease;
+
+		&:hover {
+			background: #39ff14;
+			color: #0a2e5a;
+			box-shadow: 0 0 8px rgba(57, 255, 20, 0.22);
+
+			svg {
+				stroke: #0a2e5a;
+			}
+		}
+	}
+
+	.btnGhost {
+		background: transparent;
+		border: 1px solid #ffe74c;
+		color: #ffe74c;
+
+		&:hover {
+			background: #ffe74c;
+			color: #0a2e5a;
+
+			svg {
+				stroke: #0a2e5a;
+			}
+		}
+	}
+
+	.links {
+		flex: 1;
+	}
+
+	.sidebarLinks {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+	}
+
+	.navLink {
+		color: #cccccc;
+		padding: 12px 10px;
+		border-left: 3px solid transparent;
+		display: flex;
+		gap: 10px;
+		align-items: center;
+		border-radius: 4px;
+		text-decoration: none;
+		transition: all 0.18s ease;
+
+		&:hover {
+			color: #39ff14;
+			background: rgba(57, 255, 20, 0.1);
+			border-left-color: #39ff14;
+
+			.icon svg {
+				stroke: #39ff14;
+			}
+		}
+
+		&.active {
+			color: #39ff14;
+			background: rgba(57, 255, 20, 0.15);
+			border-left-color: #39ff14;
+			font-weight: 700;
+
+			.icon svg {
+				stroke: #39ff14;
+			}
+		}
+	}
+
+	.icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 18px;
+		height: 18px;
+
+		svg {
+			stroke: #cccccc;
+			transition: stroke 0.18s ease;
+		}
+	}
+
+	.label {
+		font-size: 14px;
+		font-family: 'VT323', monospace;
+	}
+
+	// Адаптивность
+	@media (max-width: 768px) {
+		.sidebar {
+			width: 200px;
+			padding: 12px;
+
+			.brand h1 {
+				font-size: 14px;
+			}
+
+			.navActions {
+				flex-direction: column;
+				gap: 8px;
+			}
+
+			.navLink {
+				padding: 10px 8px;
+			}
+
+			.label {
+				font-size: 12px;
+			}
+		}
+	}
+}

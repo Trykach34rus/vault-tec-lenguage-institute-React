@@ -1,0 +1,252 @@
+.root {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	.layout {
+		display: flex;
+		flex: 1;
+		min-height: calc(100vh - 140px); // Учитываем высоту header и footer
+	}
+
+	.main {
+		flex: 1;
+		padding: 0;
+		background: #001f3f;
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 30px;
+	}
+
+	.vtitle {
+		font-family: 'VT323', monospace;
+		color: #39ff14;
+		margin: 0 0 8px 0;
+		font-size: 24px;
+	}
+
+	.muted {
+		color: #cccccc;
+		margin: 0;
+	}
+
+	.cardRow {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 20px;
+		margin: 20px 0;
+	}
+
+	.card {
+		background: rgba(10, 46, 90, 0.7);
+		border: 1px solid #39ff14;
+		padding: 20px;
+		border-radius: 8px;
+		flex: 1;
+		min-width: 200px;
+		transition: all 0.18s ease;
+
+		&:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 4px 12px rgba(57, 255, 20, 0.1);
+		}
+	}
+
+	.value {
+		font-size: 22px;
+		color: white;
+		margin: 8px 0;
+		font-weight: bold;
+	}
+
+	.progress {
+		height: 10px;
+		background: #0a2e5a;
+		border-radius: 8px;
+		border: 1px solid #39ff14;
+		overflow: hidden;
+		margin-top: 10px;
+
+		i {
+			display: block;
+			height: 100%;
+			background: #39ff14;
+			transition: width 0.3s ease;
+		}
+	}
+
+	.section {
+		margin-top: 30px;
+	}
+
+	.sectionTitle {
+		font-family: 'VT323', monospace;
+		color: #39ff14;
+		font-size: 18px;
+		margin: 0 0 15px 0;
+	}
+
+	.quickAccess {
+		display: flex;
+		gap: 15px;
+		flex-wrap: wrap;
+		margin-top: 15px;
+	}
+
+	.quickAccessCard {
+		flex: 1 1 220px;
+		text-align: center;
+		text-decoration: none;
+		transition: all 0.18s ease;
+
+		&:hover {
+			transform: translateY(-4px);
+			box-shadow: 0 8px 20px rgba(57, 255, 20, 0.15);
+		}
+	}
+
+	.iconContainer {
+		padding: 15px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		svg {
+			stroke: #39ff14;
+		}
+	}
+
+	.terminal {
+		background: #0a2e5a;
+		border: 2px solid #39ff14;
+		padding: 20px;
+		border-radius: 8px;
+		position: relative;
+		overflow: hidden;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: 4px;
+			background: linear-gradient(90deg, #39ff14, #ffe74c, #39ff14);
+			animation: scanline 3s linear infinite;
+		}
+	}
+
+	.tableContainer {
+		margin-top: 15px;
+		padding: 0;
+		overflow-x: auto;
+	}
+
+	.table {
+		width: 100%;
+		border-collapse: collapse;
+
+		th,
+		td {
+			padding: 12px;
+			text-align: left;
+			border-bottom: 1px dashed rgba(57, 255, 20, 0.1);
+		}
+
+		th {
+			color: #39ff14;
+			font-family: 'VT323', monospace;
+			font-size: 16px;
+		}
+
+		td {
+			color: #cccccc;
+		}
+	}
+
+	.xpPositive {
+		color: #39ff14 !important;
+		font-weight: bold;
+	}
+
+	.badge {
+		display: inline-block;
+		padding: 4px 8px;
+		border-radius: 4px;
+		font-size: 12px;
+		font-family: 'VT323', monospace;
+	}
+
+	.success {
+		background: #39ff14;
+		color: #0a2e5a;
+	}
+
+	.warn {
+		background: #ffe74c;
+		color: #0a2e5a;
+	}
+
+	// Анимация scanline
+	@keyframes scanline {
+		0% {
+			transform: translateY(0);
+		}
+		100% {
+			transform: translateY(100vh);
+		}
+	}
+
+	// Адаптивность
+	@media (max-width: 768px) {
+		.container {
+			padding: 20px 15px;
+		}
+
+		.cardRow {
+			gap: 15px;
+		}
+
+		.card {
+			min-width: 150px;
+			padding: 15px;
+		}
+
+		.quickAccess {
+			gap: 12px;
+		}
+
+		.quickAccessCard {
+			flex: 1 1 100%;
+		}
+
+		.table {
+			font-size: 14px;
+
+			th,
+			td {
+				padding: 8px;
+			}
+		}
+	}
+
+	@media (max-width: 480px) {
+		.container {
+			padding: 15px 10px;
+		}
+
+		.cardRow {
+			flex-direction: column;
+		}
+
+		.value {
+			font-size: 20px;
+		}
+
+		.sectionTitle {
+			font-size: 16px;
+		}
+	}
+}

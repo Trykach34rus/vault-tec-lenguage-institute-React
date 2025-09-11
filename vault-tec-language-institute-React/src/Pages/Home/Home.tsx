@@ -32,13 +32,6 @@ export default function Home() {
 									</a>
 								</div>
 							</div>
-							<div className={st.imageContent}>
-								<img
-									src='assets/img/terminal.jpg'
-									alt='terminal'
-									className={st.terminalImage}
-								/>
-							</div>
 						</div>
 					</section>
 

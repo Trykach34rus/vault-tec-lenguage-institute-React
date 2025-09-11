@@ -9,28 +9,24 @@ import Login from './Pages/Login/Login.tsx'
 import Progress from './Pages/Progress/Progress.tsx'
 import Signup from './Pages/Signup/Signup.tsx'
 import Speech from './Pages/Speech/Speech.tsx'
-// import Sidebar from './Pages/'
 
 export default function App() {
 	return (
 		<Router>
 			<div className='app-container'>
-				<div className='main-layout'>
-					{/* <Sidebar /> */}
-					<div className='content'>
-						<Routes>
-							<Route path='/' element={<Home />} />
-							<Route path='/login' element={<Login />} />
-							<Route path='/signup' element={<Signup />} />
-							<Route path='/about' element={<About />} />
-							<Route path='/dashboard' element={<Dashboard />} />
-							<Route path='/chat' element={<Chat />} />
-							<Route path='/speech' element={<Speech />} />
-							<Route path='/check' element={<Check />} />
-							<Route path='/exercises' element={<Exercises />} />
-							<Route path='/progress' element={<Progress />} />
-						</Routes>
-					</div>
+				<div className='content'>
+					<Routes>
+						<Route path='/' element={<Home />} />
+						<Route path='/login' element={<Login />} />
+						<Route path='/signup' element={<Signup />} />
+						<Route path='/about' element={<About />} />
+						<Route path='/dashboard' element={<Dashboard />} />
+						<Route path='/chat' element={<Chat />} />
+						<Route path='/speech' element={<Speech />} />
+						<Route path='/check' element={<Check />} />
+						<Route path='/exercises' element={<Exercises />} />
+						<Route path='/progress' element={<Progress />} />
+					</Routes>
 				</div>
 			</div>
 		</Router>
