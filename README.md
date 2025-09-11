@@ -35,7 +35,7 @@
 ### 1. Клонирование репозитория
 
 ```bash
-git clone [https://github.com/Trykach34rus/Todo-List-Redux.git](https://github.com/Trykach34rus/vault-tec-lenguage-institute-React.git)
+git clone [https://github.com/Trykach34rus/vault-tec-lenguage-institute-React.git]
 cd vault-tec-lenguage-institute-React
 ```
 
