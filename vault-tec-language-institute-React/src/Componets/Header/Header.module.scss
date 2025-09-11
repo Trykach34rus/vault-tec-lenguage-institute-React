@@ -1,0 +1,62 @@
+.root {
+	display: flex;
+	height: 80px;
+	padding: 20px;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 2px solid #39ff14;
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.04));
+	top: 0;
+
+	.brand {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+
+		h1 {
+			margin: 0;
+			font-family: 'VT323', monospace;
+			color: #39ff14;
+			font-size: 20px;
+			letter-spacing: 1px;
+		}
+	}
+
+	.logo {
+		width: 44px;
+		height: 44px;
+	}
+
+	.navActions {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+	}
+
+	.btn {
+		background: #0a2e5a;
+		border: 2px solid #39ff14;
+		color: #ffffff;
+		padding: 8px 14px;
+		font-family: 'VT323', monospace;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		cursor: pointer;
+		border-radius: 6px;
+
+		&:hover {
+			background: #39ff14;
+			color: #0a2e5a;
+		}
+	}
+
+	.btnGhost {
+		background: transparent;
+		border: 2px solid #ffe74c;
+		color: #ffe74c;
+
+		&:hover {
+			color: #39ff14;
+		}
+	}
+}

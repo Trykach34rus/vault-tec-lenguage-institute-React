@@ -1,0 +1,48 @@
+:root {
+	--vault-dark: #001f3f;
+	--vault-medium: #0a2e5a;
+	--vault-light: #39ff14;
+	--vault-accent: #ffe74c;
+	--white: #ffffff;
+	--muted: #cccccc;
+	--mono: 'Courier New', monospace;
+	--vt: 'VT323', monospace;
+}
+
+/* ===== Reset / base ===== */
+* {
+	box-sizing: border-box;
+}
+html,
+body {
+	height: 100%;
+}
+body {
+	margin: 0;
+	font-family: var(--mono);
+	background-color: var(--vault-dark);
+	color: var(--white);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	position: relative;
+	overflow-x: hidden;
+	padding-bottom: 80px; /* space for mobile nav */
+	background-image: radial-gradient(
+			circle at 10% 20%,
+			rgba(57, 255, 20, 0.04) 0%,
+			rgba(57, 255, 20, 0.04) 90%
+		),
+		linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
+}
+
+/* subtle scan grid */
+body::before {
+	content: '';
+	position: fixed;
+	inset: 0;
+	background: linear-gradient(rgba(0, 0, 0, 0.26) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(0, 0, 0, 0.26) 1px, transparent 1px);
+	background-size: 3px 3px;
+	pointer-events: none;
+	z-index: 0;
+}

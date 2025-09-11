@@ -1,0 +1,237 @@
+.root {
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+
+	.container {
+		flex: 1;
+		max-width: 1100px;
+		width: 100%;
+		margin: 0 auto;
+		padding: 40px 28px;
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+	}
+
+	.terminal {
+		background: #0a2e5a;
+		border: 2px solid #39ff14;
+		padding: 30px;
+		border-radius: 8px;
+		position: relative;
+		overflow: hidden;
+		text-align: center;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: 4px;
+			background: linear-gradient(90deg, #39ff14, #ffe74c, #39ff14);
+			animation: scanline 3s linear infinite;
+		}
+	}
+
+	.vtitle {
+		font-family: 'VT323', monospace;
+		color: #39ff14;
+		margin: 0 0 12px 0;
+		font-size: 24px;
+	}
+
+	.vaultAccent {
+		color: #ffe74c;
+	}
+
+	.muted {
+		color: #cccccc;
+		font-size: 16px;
+		line-height: 1.5;
+		margin-bottom: 20px;
+	}
+
+	.contentRow {
+		display: flex;
+		gap: 30px;
+		flex-wrap: wrap;
+		margin-top: 25px;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.textContent {
+		flex: 1 1 320px;
+		max-width: 400px;
+		text-align: left;
+	}
+
+	.buttonGroup {
+		margin-top: 20px;
+		display: flex;
+		gap: 12px;
+		flex-wrap: wrap;
+	}
+
+	.imageContent {
+		flex: 1 1 320px;
+		max-width: 400px;
+		display: flex;
+		justify-content: center;
+	}
+
+	.terminalImage {
+		width: 100%;
+		max-width: 380px;
+		border: 2px solid #39ff14;
+		border-radius: 6px;
+	}
+
+	.systemsSection {
+		margin-top: 0;
+		text-align: center;
+	}
+
+	.cardRow {
+		display: flex;
+		flex-direction: row;
+		gap: 20px;
+		margin-top: 20px;
+		justify-content: center;
+	}
+
+	.card {
+		background: rgba(10, 46, 90, 0.7);
+		border: 1px solid #39ff14;
+		padding: 20px;
+		border-radius: 8px;
+		flex: 0 1 250px;
+		min-width: 220px;
+		transition: all 0.18s ease;
+		text-align: center;
+
+		&:hover {
+			transform: translateY(-6px);
+			box-shadow: 0 10px 30px rgba(57, 255, 20, 0.06);
+			border-color: #ffe74c;
+		}
+	}
+
+	.btn {
+		background: #0a2e5a;
+		border: 2px solid #39ff14;
+		color: white;
+		padding: 12px 20px;
+		font-family: 'VT323', monospace;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		cursor: pointer;
+		border-radius: 6px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 8px;
+		transition: all 0.18s ease;
+		text-decoration: none;
+		font-size: 16px;
+		min-width: 120px;
+
+		&:hover {
+			background: #39ff14;
+			color: #0a2e5a;
+			box-shadow: 0 0 12px rgba(57, 255, 20, 0.22);
+		}
+	}
+
+	.btnGhost {
+		background: transparent;
+		border: 2px solid #ffe74c;
+		color: #ffe74c;
+
+		&:hover {
+			background: #ffe74c;
+			color: #0a2e5a;
+		}
+	}
+
+	@keyframes scanline {
+		0% {
+			transform: translateY(0);
+		}
+		100% {
+			transform: translateY(100vh);
+		}
+	}
+
+	// Адаптивность для мобильных устройств
+	@media (max-width: 768px) {
+		.container {
+			padding: 20px 16px;
+			gap: 30px;
+		}
+
+		.terminal {
+			padding: 20px;
+		}
+
+		.vtitle {
+			font-size: 20px;
+		}
+
+		.contentRow {
+			gap: 20px;
+			margin-top: 20px;
+		}
+
+		.textContent {
+			text-align: center;
+		}
+
+		.buttonGroup {
+			justify-content: center;
+		}
+
+		.card {
+			flex: 0 1 100%;
+			max-width: 280px;
+		}
+
+		.btn {
+			padding: 10px 16px;
+			font-size: 14px;
+			min-width: 100px;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.container {
+			padding: 16px 12px;
+			gap: 24px;
+		}
+
+		.terminal {
+			padding: 16px;
+		}
+
+		.vtitle {
+			font-size: 18px;
+		}
+
+		.muted {
+			font-size: 14px;
+		}
+
+		.buttonGroup {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.btn {
+			width: 100%;
+			max-width: 200px;
+		}
+	}
+}
