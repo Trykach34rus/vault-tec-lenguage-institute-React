@@ -1,0 +1,260 @@
+.root {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	background: #001f3f;
+	background-image: radial-gradient(
+			circle at 10% 20%,
+			rgba(57, 255, 20, 0.04) 0%,
+			rgba(57, 255, 20, 0.04) 90%
+		),
+		linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
+
+	.main {
+		flex: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 40px 20px;
+	}
+
+	.terminal {
+		background: #0a2e5a;
+		border: 2px solid #39ff14;
+		border-radius: 12px;
+		padding: 40px;
+		width: 100%;
+		max-width: 480px;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.terminal::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 4px;
+		background: linear-gradient(90deg, #39ff14, #ffe74c, #39ff14);
+		animation: scanline 3s linear infinite;
+	}
+
+	.header {
+		text-align: center;
+		margin-bottom: 30px;
+	}
+
+	.title {
+		font-family: 'VT323', monospace;
+		color: #39ff14;
+		font-size: 2.2rem;
+		margin: 0 0 10px 0;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		text-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
+	}
+
+	.subtitle {
+		color: #cccccc;
+		font-size: 1rem;
+		margin: 0;
+		line-height: 1.5;
+		opacity: 0.8;
+	}
+
+	.form {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.formGroup {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	.label {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		color: #39ff14;
+		font-family: 'VT323', monospace;
+		font-size: 1.1rem;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+
+	.labelIcon {
+		font-size: 1.2rem;
+	}
+
+	.input {
+		padding: 14px 16px;
+		border: 1px solid #39ff14;
+		background: rgba(0, 31, 63, 0.5);
+		color: #ffffff;
+		border-radius: 6px;
+		font-family: 'Courier New', monospace;
+		font-size: 14px;
+		transition: all 0.2s ease;
+
+		&:focus {
+			outline: none;
+			border-color: #ffe74c;
+			box-shadow: 0 0 15px rgba(255, 231, 76, 0.15);
+		}
+
+		&:disabled {
+			opacity: 0.6;
+			cursor: not-allowed;
+		}
+
+		&::placeholder {
+			color: #666;
+		}
+	}
+
+	.error {
+		color: #ff6b6b;
+		font-size: 0.9rem;
+		font-family: 'Courier New', monospace;
+		margin-top: 4px;
+	}
+
+	.submitButton {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+		padding: 16px;
+		border: 2px solid #39ff14;
+		background: #39ff14;
+		color: #0a2e5a;
+		font-family: 'VT323', monospace;
+		font-size: 1.2rem;
+		text-transform: uppercase;
+		border-radius: 6px;
+		cursor: pointer;
+		transition: all 0.2s ease;
+		margin-top: 10px;
+
+		&:hover:not(:disabled) {
+			background: #2ee00f;
+			border-color: #2ee00f;
+			transform: translateY(-2px);
+			box-shadow: 0 5px 15px rgba(57, 255, 20, 0.2);
+		}
+
+		&:disabled {
+			opacity: 0.7;
+			cursor: not-allowed;
+		}
+	}
+
+	.spinner {
+		width: 16px;
+		height: 16px;
+		border: 2px solid transparent;
+		border-top: 2px solid #0a2e5a;
+		border-radius: 50%;
+		animation: spin 1s linear infinite;
+	}
+
+	.footer {
+		margin-top: 30px;
+		text-align: center;
+		border-top: 1px solid rgba(57, 255, 20, 0.1);
+		padding-top: 20px;
+	}
+
+	.loginText {
+		color: #cccccc;
+		font-size: 0.95rem;
+		margin: 0 0 15px 0;
+	}
+
+	.loginLink {
+		color: #39ff14;
+		text-decoration: none;
+		font-weight: 500;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	.backLink {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		color: #ffe74c;
+		text-decoration: none;
+		font-size: 0.9rem;
+		font-family: 'Courier New', monospace;
+
+		&:hover {
+			color: #39ff14;
+		}
+	}
+
+	.backIcon {
+		font-size: 0.9rem;
+	}
+
+	@keyframes scanline {
+		0% {
+			transform: translateY(-100%);
+		}
+		100% {
+			transform: translateY(400px);
+		}
+	}
+
+	@keyframes spin {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+
+	@media (max-width: 768px) {
+		.main {
+			padding: 20px;
+		}
+
+		.terminal {
+			padding: 30px 20px;
+		}
+
+		.title {
+			font-size: 1.8rem;
+		}
+
+		.submitButton {
+			font-size: 1.1rem;
+			padding: 14px;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.terminal {
+			padding: 25px 15px;
+		}
+
+		.title {
+			font-size: 1.6rem;
+		}
+
+		.label {
+			font-size: 1rem;
+		}
+
+		.input {
+			padding: 12px 14px;
+		}
+	}
+}

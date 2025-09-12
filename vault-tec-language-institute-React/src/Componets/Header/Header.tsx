@@ -1,8 +1,11 @@
+import { useNavigate } from 'react-router-dom'
 import st from './Header.module.scss'
 
 type Props = {}
 
 export default function Header({}: Props) {
+	const navigate = useNavigate()
+
 	return (
 		<header className={st.root}>
 			<div className={st.brand}>
@@ -19,12 +22,15 @@ export default function Header({}: Props) {
 				<h1>VAULT-TEC LANGUAGE INSTITUTE</h1>
 			</div>
 			<div className={st.navActions}>
-				<a className={`${st.btn} ${st.btnGhost}`} href='/login'>
+				<button
+					className={`${st.btn} ${st.btnGhost}`}
+					onClick={() => navigate('/login')}
+				>
 					Login
-				</a>
-				<a className={st.btn} href='/signup'>
+				</button>
+				<button className={st.btn} onClick={() => navigate('/signup')}>
 					Sign Up
-				</a>
+				</button>
 			</div>
 		</header>
 	)
