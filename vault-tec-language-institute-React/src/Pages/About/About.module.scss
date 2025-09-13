@@ -1,0 +1,256 @@
+.root {
+	min-height: 100vh;
+	background: #001f3f;
+	background-image: radial-gradient(
+			circle at 10% 20%,
+			rgba(57, 255, 20, 0.04) 0%,
+			rgba(57, 255, 20, 0.04) 90%
+		),
+		linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
+	padding: 60px 20px;
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
+
+	.terminal {
+		background: #0a2e5a;
+		border: 2px solid #39ff14;
+		padding: 40px;
+		border-radius: 12px;
+		position: relative;
+		overflow: hidden;
+		max-width: 800px;
+		margin: 0 auto;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: 4px;
+			background: linear-gradient(90deg, #39ff14, #ffe74c, #39ff14);
+			animation: scanline 3s linear infinite;
+		}
+	}
+
+	.vtitle {
+		font-family: 'VT323', monospace;
+		color: #39ff14;
+		font-size: 2.5rem;
+		margin: 0 0 20px 0;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+	}
+
+	.muted {
+		color: #cccccc;
+		font-size: 1.1rem;
+		line-height: 1.6;
+		margin: 0 0 25px 0;
+	}
+
+	.featuresList {
+		color: #dddddd;
+		margin: 20px 0 30px 0;
+		padding: 0;
+		list-style: none;
+
+		li {
+			padding: 8px 0;
+			padding-left: 25px;
+			position: relative;
+			font-size: 1.1rem;
+			line-height: 1.5;
+
+			&::before {
+				content: '▸';
+				color: #39ff14;
+				position: absolute;
+				left: 0;
+				font-weight: bold;
+				font-size: 1.2rem;
+			}
+
+			&:not(:last-child) {
+				border-bottom: 1px dashed rgba(57, 255, 20, 0.2);
+			}
+		}
+	}
+
+	.subtitle {
+		font-family: 'VT323', monospace;
+		color: #39ff14;
+		font-size: 1.5rem;
+		margin: 30px 0 20px 0;
+		text-transform: uppercase;
+	}
+
+	.authorSection {
+		margin: 30px 0;
+		padding: 25px;
+		background: rgba(10, 46, 90, 0.3);
+		border: 1px solid rgba(57, 255, 20, 0.3);
+		border-radius: 8px;
+	}
+
+	.authorInfo {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 15px;
+	}
+
+	.authorItem {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+	}
+
+	.authorLabel {
+		color: #39ff14;
+		font-family: 'VT323', monospace;
+		font-size: 1.1rem;
+		text-transform: uppercase;
+	}
+
+	.authorValue {
+		color: #cccccc;
+		font-size: 0.95rem;
+		line-height: 1.4;
+	}
+
+	.ctaSection {
+		display: flex;
+		gap: 20px;
+		flex-wrap: wrap;
+		margin-top: 40px;
+		padding-top: 30px;
+		border-top: 1px dashed rgba(57, 255, 20, 0.3);
+	}
+
+	.ctaButton {
+		padding: 15px 30px;
+		background: #39ff14;
+		color: #0a2e5a;
+		border: 2px solid #39ff14;
+		border-radius: 6px;
+		text-decoration: none;
+		font-family: 'VT323', monospace;
+		font-size: 1.2rem;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		transition: all 0.3s ease;
+		text-align: center;
+
+		&:hover {
+			background: #2ee00f;
+			border-color: #2ee00f;
+			transform: translateY(-2px);
+			box-shadow: 0 10px 25px rgba(57, 255, 20, 0.3);
+		}
+	}
+
+	.secondaryButton {
+		padding: 15px 30px;
+		background: transparent;
+		color: #ffe74c;
+		border: 2px solid #ffe74c;
+		border-radius: 6px;
+		text-decoration: none;
+		font-family: 'VT323', monospace;
+		font-size: 1.2rem;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		transition: all 0.3s ease;
+		text-align: center;
+
+		&:hover {
+			background: #ffe74c;
+			color: #0a2e5a;
+			transform: translateY(-2px);
+			box-shadow: 0 10px 25px rgba(255, 231, 76, 0.3);
+		}
+	}
+
+	@keyframes scanline {
+		0% {
+			transform: translateY(0);
+		}
+		100% {
+			transform: translateY(100vh);
+		}
+	}
+
+	@media (max-width: 768px) {
+		padding: 40px 15px;
+
+		.terminal {
+			padding: 30px 25px;
+		}
+
+		.vtitle {
+			font-size: 2rem;
+		}
+
+		.muted {
+			font-size: 1rem;
+		}
+
+		.featuresList li {
+			font-size: 1rem;
+			padding-left: 20px;
+		}
+
+		.authorSection {
+			padding: 20px;
+		}
+
+		.ctaSection {
+			flex-direction: column;
+			gap: 15px;
+		}
+
+		.ctaButton,
+		.secondaryButton {
+			padding: 12px 25px;
+			font-size: 1.1rem;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.terminal {
+			padding: 25px 20px;
+		}
+
+		.vtitle {
+			font-size: 1.7rem;
+		}
+
+		.subtitle {
+			font-size: 1.3rem;
+		}
+
+		.authorSection {
+			padding: 15px;
+		}
+
+		.featuresList li {
+			padding-left: 18px;
+
+			&::before {
+				font-size: 1rem;
+			}
+		}
+
+		.authorLabel {
+			font-size: 1rem;
+		}
+
+		.authorValue {
+			font-size: 0.9rem;
+		}
+	}
+}

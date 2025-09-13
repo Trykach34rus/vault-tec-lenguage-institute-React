@@ -1,32 +1,33 @@
-import { useState } from 'react'
+import { useFormik } from 'formik'
 import { Link, useNavigate } from 'react-router-dom'
 import Footer from '../../Componets/Footer/Footer'
 import Header from '../../Componets/Header/Header'
+import { handleLogin } from '../../redux/slices/userReducer'
+import { useAppDispatch, useAppSelector } from '../../redux/store'
 import st from './Login.module.scss'
 
-interface FormData {
-	username: string
-	password: string
-	remember: boolean
-}
-
 export default function Login() {
-	const [formData, setFormData] = useState<FormData>({
-		username: '',
-		password: '',
-		remember: false,
-	})
 	const navigate = useNavigate()
+	const dispatch = useAppDispatch()
+	const { loginError } = useAppSelector(state => state.user)
 
-	const handleSubmit = (e: React.FormEvent) => {
-		e.preventDefault()
-		// Логика авторизации
-		console.log('Login attempt:', formData)
-		// Здесь будет редирект на dashboard после успешной авторизации
-	}
+	const formik = useFormik({
+		initialValues: {
+			username: '',
+			password: '',
+			remember: false,
+		},
+		onSubmit: values => {
+			dispatch(handleLogin(values)).then(action => {
+				if (action.meta.requestStatus === 'fulfilled') {
+					navigate('/dashboard')
+				}
+			})
+		},
+	})
 
 	const handleCheckboxClick = () => {
-		setFormData(prev => ({ ...prev, remember: !prev.remember }))
+		formik.setFieldValue('remember', !formik.values.remember)
 	}
 
 	return (
@@ -38,7 +39,7 @@ export default function Login() {
 						<h2 className={st.vtitle}>VAULT ACCESS</h2>
 						<p className={st.muted}>Enter Vault ID and Access Code</p>
 
-						<form onSubmit={handleSubmit} className={st.loginForm}>
+						<form onSubmit={formik.handleSubmit} className={st.loginForm}>
 							<label className={st.muted}>VAULT ID</label>
 							<input
 								className={st.input}
@@ -46,10 +47,8 @@ export default function Login() {
 								name='username'
 								placeholder='Vault ID'
 								required
-								value={formData.username}
-								onChange={e =>
-									setFormData({ ...formData, username: e.target.value })
-								}
+								value={formik.values.username}
+								onChange={formik.handleChange}
 							/>
 
 							<label className={st.muted}>ACCESS CODE</label>
@@ -59,27 +58,29 @@ export default function Login() {
 								name='password'
 								placeholder='Access code'
 								required
-								value={formData.password}
-								onChange={e =>
-									setFormData({ ...formData, password: e.target.value })
-								}
+								value={formik.values.password}
+								onChange={formik.handleChange}
 							/>
 
 							<div className={st.checkboxContainer}>
 								<div
 									className={`${st.checkbox} ${
-										formData.remember ? st.checked : ''
+										formik.values.remember ? st.checked : ''
 									}`}
 									onClick={handleCheckboxClick}
 								></div>
 								<span className={st.muted}>Remember this terminal</span>
 							</div>
 
+							{loginError && <div className={st.error}>{loginError}</div>}
+
 							<button
+								type='submit'
 								className={`${st.btn} ${st.submitBtn}`}
-								onClick={() => navigate('/dashboard')}
+								disabled={formik.isSubmitting}
+								// onClick={() => navigate('/dashboard')}
 							>
-								AUTHORIZE
+								{formik.isSubmitting ? 'AUTHORIZING...' : 'AUTHORIZE'}
 							</button>
 
 							<p className={st.registerText}>

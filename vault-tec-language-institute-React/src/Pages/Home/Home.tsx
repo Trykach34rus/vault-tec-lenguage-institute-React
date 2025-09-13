@@ -165,18 +165,18 @@ export default function Home() {
 								future of education today.
 							</p>
 							<div className={st.ctaButtons}>
-								<a
-									href='/signup'
+								<button
 									className={`${st.btn} ${st.btnLarge} ${st.btnPrimary}`}
+									onClick={() => navigate('/signup')}
 								>
 									Start Learning Free
-								</a>
-								<a
-									href='/about'
+								</button>
+								<button
 									className={`${st.btn} ${st.btnLarge} ${st.btnGhost}`}
+									onClick={() => navigate('/About')}
 								>
 									Learn More
-								</a>
+								</button>
 							</div>
 						</div>
 					</div>

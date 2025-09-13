@@ -1,21 +1,19 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import Footer from '../../Componets/Footer/Footer'
 import Header from '../../Componets/Header/Header'
 import Sidebar from '../../Componets/Sidebar/Sidebar'
 import st from './Speech.module.scss'
 
 export default function SpeechTrainer() {
-	const navigate = useNavigate()
-	const [transcript, setTranscript] = useState('')
-	const [score, setScore] = useState<number | null>(null)
+	// const navigate = useNavigate()
+	// const [transcript, setTranscript] = useState<string>('')
+	// const [score, setScore] = useState<number | null>(null)
 
 	const referencePhrase = 'The quick brown fox jumps over the lazy dog.'
 
-	const resetTest = () => {
-		setTranscript('')
-		setScore(null)
-	}
+	// const resetTest = () => {
+	// 	setTranscript('')
+	// 	setScore(null)
+	// }
 
 	return (
 		<>
@@ -35,7 +33,7 @@ export default function SpeechTrainer() {
 
 								<div className={st.controls}>
 									<button
-										onClick={resetTest}
+										// onClick={resetTest}
 										className={`${st.button} ${st.resetButton}`}
 									>
 										Reset

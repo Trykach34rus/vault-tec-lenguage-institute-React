@@ -28,6 +28,20 @@
 		text-decoration: none;
 		transition: all 0.2s ease;
 	}
+	.links button {
+		background: none;
+		border: none;
+		color: #39ff14;
+		cursor: pointer;
+		font-family: inherit;
+		font-size: inherit;
+		padding: 0;
+		transition: all 0.2s ease;
+	}
+
+	.links button:hover {
+		color: #ffe74c;
+	}
 
 	.links a:hover {
 		color: #ffe74c;

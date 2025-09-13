@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { FiAward, FiCalendar, FiTrendingUp } from 'react-icons/fi'
-import { useNavigate } from 'react-router-dom'
 import Footer from '../../Componets/Footer/Footer'
 import Header from '../../Componets/Header/Header'
 import Sidebar from '../../Componets/Sidebar/Sidebar'
@@ -12,7 +11,7 @@ interface ProgressItem {
 }
 
 export default function Progress() {
-	const navigate = useNavigate()
+	// const navigate = useNavigate()
 	const [progressData, setProgressData] = useState<ProgressItem[]>([
 		{ category: 'Vocabulary', percentage: 86 },
 		{ category: 'Grammar', percentage: 72 },

@@ -1,13 +1,12 @@
 import { useState } from 'react'
 import { FiBook, FiPlay } from 'react-icons/fi'
-import { useNavigate } from 'react-router-dom'
 import Footer from '../../Componets/Footer/Footer'
 import Header from '../../Componets/Header/Header'
 import Sidebar from '../../Componets/Sidebar/Sidebar'
 import st from './Exercises.module.scss'
 
 export default function ExerciseGenerator() {
-	const navigate = useNavigate()
+	// const navigate = useNavigate()
 	const [topic, setTopic] = useState<string>('')
 	const [level, setLevel] = useState<string>('B1')
 	const [count, setCount] = useState<number>(5)

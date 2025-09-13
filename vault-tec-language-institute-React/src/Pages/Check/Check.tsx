@@ -1,13 +1,12 @@
 import { useState } from 'react'
 import { FiAlertCircle, FiCheck, FiEdit } from 'react-icons/fi'
-import { useNavigate } from 'react-router-dom'
 import Footer from '../../Componets/Footer/Footer'
 import Header from '../../Componets/Header/Header'
 import Sidebar from '../../Componets/Sidebar/Sidebar'
 import st from './Check.module.scss'
 
 export default function WritingScanner() {
-	const navigate = useNavigate()
+	// const navigate = useNavigate()
 	const [inputText, setInputText] = useState<string>('')
 	const [correctedText, setCorrectedText] = useState<string>('')
 	const [errors, setErrors] = useState<string[]>([])
@@ -52,7 +51,7 @@ export default function WritingScanner() {
 			}
 
 			// Проверка заглавных букв после точек
-			corrected = corrected.replace(/\.\s+([a-z])/g, (match, letter) => {
+			corrected = corrected.replace(/\.\s+([a-z])/g, (_, letter) => {
 				return `. ${letter.toUpperCase()}`
 			})
 
