@@ -9,6 +9,7 @@ import Login from './Pages/Login/Login.tsx'
 import Progress from './Pages/Progress/Progress.tsx'
 import Signup from './Pages/Signup/Signup.tsx'
 import Speech from './Pages/Speech/Speech.tsx'
+import ProtectedRoute from './ProtectedRoute.tsx'
 
 export default function App() {
 	return (
@@ -19,12 +20,54 @@ export default function App() {
 					<Route path='/login' element={<Login />} />
 					<Route path='/signup' element={<Signup />} />
 					<Route path='/about' element={<About />} />
-					<Route path='/dashboard' element={<Dashboard />} />
-					<Route path='/chat' element={<Chat />} />
-					<Route path='/speech' element={<Speech />} />
-					<Route path='/check' element={<Check />} />
-					<Route path='/exercises' element={<Exercises />} />
-					<Route path='/progress' element={<Progress />} />
+					<Route
+						path='/dashboard'
+						element={
+							<ProtectedRoute>
+								<Dashboard />
+							</ProtectedRoute>
+						}
+					/>
+					<Route
+						path='/chat'
+						element={
+							<ProtectedRoute>
+								<Chat />
+							</ProtectedRoute>
+						}
+					/>
+					<Route
+						path='/speech'
+						element={
+							<ProtectedRoute>
+								<Speech />
+							</ProtectedRoute>
+						}
+					/>
+					<Route
+						path='/check'
+						element={
+							<ProtectedRoute>
+								<Check />
+							</ProtectedRoute>
+						}
+					/>
+					<Route
+						path='/exercises'
+						element={
+							<ProtectedRoute>
+								<Exercises />
+							</ProtectedRoute>
+						}
+					/>
+					<Route
+						path='/progress'
+						element={
+							<ProtectedRoute>
+								<Progress />
+							</ProtectedRoute>
+						}
+					/>
 				</Routes>
 			</div>
 		</div>
